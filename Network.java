@@ -30,6 +30,10 @@ public class Network {
      *  Notice that the method receives a String, and returns a User object. */
     public User getUser(String name) {
 
+        // check if the given name is not null
+        if (name==null)
+            return null;
+            
         // going throw the users list in this network
         for (int i=0; i<userCount; i++){
             // comparring the cuurent user name to the given name
@@ -97,7 +101,7 @@ public class Network {
     /** Computes and returns the name of the most popular user in this network: 
      *  The user who appears the most in the follow lists of all the users. */
     public String mostPopularUser() {
-        String mostPopularUser = "";
+        String mostPopularUser = null;
         int max = 0;
         for (int i=0; i<userCount; i++){
             if (this.followeeCount(users[i].getName()) > max){
